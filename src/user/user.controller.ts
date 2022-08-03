@@ -1,17 +1,17 @@
 /* eslint-disable prettier/prettier */
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UserService } from './user.service';
-import { UserDto } from './dto/user.dto';
+import { User } from './schema/user.schema';
 import { UserSchema } from './schema/user.schema';
 
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  // @Post()
-  // async create(@Body() userDto: UserDto) {
-  //   await this.userService.create(userDto);
-  // }
+  @Post()
+  async create(@Body() userDto: User) {
+    await this.userService.create(userDto);
+  }
 
   // @Get()
   // async findAll(): Promise<User[]> {

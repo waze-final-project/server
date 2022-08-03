@@ -17,11 +17,11 @@ import { UserSchema } from './user/schema/user.schema';
       'mongodb+srv://Ron:vCYuIhUCuPxa79rK@teat-nestjs.z5gnevy.mongodb.net/nest-maps?retryWrites=true&w=majority',
     ),
     UserModule,
-    AuthModule,
-    BookmarkModule,
-    PrismaModule,
+    // AuthModule,
+    // BookmarkModule,
+    // PrismaModule,
   ],
-  controllers: [AuthController],
-  providers: [AuthService, UserService],
+  // controllers: [AuthController],
+  // providers: [AuthService, UserService],
 })
 export class AppModule {}

@@ -7,6 +7,13 @@ export const UserSchema=new mongoose.Schema({
   lastName: {type: String, required: true },
   email: {type: String, required: true }
 }); 
+
+
+export interface User {
+  firstName: number;
+  lastName: string; 
+  email: string;
+}
 // export type UserDocument = User & Document;
 
 // @Schema()
