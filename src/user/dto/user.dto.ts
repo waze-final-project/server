@@ -1,6 +1,11 @@
 /* eslint-disable prettier/prettier */
+import { IsNotEmpty } from 'class-validator';
+import { Hash } from 'crypto';
+
 export class UserDto {
-  readonly name: string;
-  readonly age: number;
-  readonly breed: string;
+  id: Hash
+  @IsNotEmpty()
+  name: string;
+  age: number;
+  breed: string;
 }
