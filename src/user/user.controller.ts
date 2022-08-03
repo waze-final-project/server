@@ -12,6 +12,10 @@ export class UserController {
   async create(@Body() userDto: User) {
     await this.userService.create(userDto);
   }
+  @Get()
+  getAllUser(){
+    return this.userService.findAll();
+  }
 
   // @Get()
   // async findAll(): Promise<User[]> {
