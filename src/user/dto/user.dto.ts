@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 
-export interface User {
+import mongoose from "mongoose";
+
+export interface User extends mongoose.Document {
     firstName: number;
     lastName: string; 
     email: string;

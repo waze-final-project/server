@@ -27,10 +27,15 @@ export class UserService {
       return user
     }
     catch (error) {
-     throw new NotFoundException("npt found")
+      throw new NotFoundException("npt found")
     }
-
-
+  }
+  async updateUser(userId: string,firstName,lastName,email) {
+    const updateUser = await this.findOne(userId)
+    if (lastName) { updateUser.lastName = lastName }
+    if (firstName) { updateUser.firstName = firstName }
+    if (email) { updateUser.email = email }
+    updateUser.save();
 
   }
 
