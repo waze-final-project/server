@@ -9,7 +9,7 @@ export class UserService {
   constructor(
     @InjectModel('User')
     private readonly userModel: Model<User>,
-  ) {}
+  ) { }
 
   async create(userDto: User) {
     const createdUser = await this.userModel.create(userDto);
@@ -17,16 +17,21 @@ export class UserService {
   }
 
   async findAll() {
-    const user=await this.userModel.find().exec();
+    const user = await this.userModel.find().exec();
     return user;
   }
 
   async findOne(id: string): Promise<User> {
-    const user= await this.userModel.findById(id).exec();
-    if(!user){
-      throw new NotFoundException(`user with ${id} id not found🙄`)
+    try {
+      const user = await this.userModel.findById(id).exec();
+      return user
     }
-    return user
+    catch (error) {
+     throw new NotFoundException("npt found")
+    }
+
+
+
   }
 
   async delete(id: string) {
