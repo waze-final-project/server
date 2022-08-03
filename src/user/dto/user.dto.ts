@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-export class UserDto {
-  readonly name: string;
-  readonly age: number;
-  readonly breed: string;
+export interface UserDto {
+   name: string;
+   age: number;
+   breed: string;
 }
