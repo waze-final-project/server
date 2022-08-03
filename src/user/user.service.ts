@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User } from './dto/user.dto';
@@ -22,7 +22,11 @@ export class UserService {
   }
 
   async findOne(id: string): Promise<User> {
-    return this.userModel.findOne({ _id: id }).exec();
+    const user= await this.userModel.findById(id).exec();
+    if(!user){
+      throw new NotFoundException(`user with ${id} id not found🙄`)
+    }
+    return user
   }
 
   async delete(id: string) {

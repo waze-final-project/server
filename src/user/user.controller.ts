@@ -17,13 +17,8 @@ export class UserController {
     return user.map((u) => ({ id: u.id,firstName:u.firstName,lastName:u.lastName,email:u.email }))
   }
 
-  @Get()
-  async findAll(): Promise<User[]> {
-    return this.userService.findAll();
-  }
-
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<User> {
+  async findOne(@Param('id') id: string) {
     return this.userService.findOne(id);
   }
 
