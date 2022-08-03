@@ -1,22 +1,27 @@
 /* eslint-disable prettier/prettier */
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose from 'mongoose';
 
-export type UserDocument = User & Document;
 
-@Schema()
-export class User {
-  @Prop()
-  id:string;
+export const UserSchema=new mongoose.Schema({
+  firstName: {type: String, required: true },
+  lastName: {type: String, required: true },
+  email: {type: String, required: true }
+}); 
+// export type UserDocument = User & Document;
 
-  @Prop()
-  firstName: string;
+// @Schema()
+// export class User {
+//   // @Prop()
+//   // id:string;
 
-  @Prop()
-  lastName: number;
+//   @Prop()
+//   firstName: string;
 
-  @Prop()
-  email: string;
-}
+//   @Prop()
+//   lastName: number;
 
-export const UserSchema = SchemaFactory.createForClass(User);
+//   @Prop()
+//   email: string;
+// }
+
+// export const UserSchema = SchemaFactory.createForClass(User);
