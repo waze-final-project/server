@@ -5,15 +5,16 @@ import { User } from './dto/user.dto';
 
 @Controller('user')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(private readonly userService: UserService) { }
 
   @Post()
   async create(@Body() userDto: User) {
     await this.userService.create(userDto);
   }
   @Get()
-  getAllUser(){
-    return this.userService.findAll();
+  async getAllUser() {
+    const user = await this.userService.findAll();
+    return user.map((u) => ({ id: u.id,firstName:u.firstName,lastName:u.lastName,email:u.email }))
   }
 
   @Get()
