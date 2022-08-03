@@ -6,4 +6,4 @@ export interface User extends mongoose.Document {
     firstName: number;
     lastName: string; 
     email: string;
-  }
+}
