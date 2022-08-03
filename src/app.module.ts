@@ -10,10 +10,6 @@ import { AuthModule } from './auth/auth.module';
       'mongodb+srv://Ron:vCYuIhUCuPxa79rK@teat-nestjs.z5gnevy.mongodb.net/nest-maps?retryWrites=true&w=majority',
     ),
     UserModule,
-<<<<<<< HEAD
-=======
-    AuthModule,
->>>>>>> f4fd025897061018dd12c88707622dfd7902c4f7
   ],
 })
 export class AppModule {}
